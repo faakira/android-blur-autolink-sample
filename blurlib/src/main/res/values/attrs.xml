@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BlurView">
+        <!-- ぼかしの強さ(dp)。大きいほど強くぼける -->
+        <attr name="blurRadius" format="dimension" />
+        <!-- ぼかしの上に重ねるオーバーレイ色(すりガラスの白みなど) -->
+        <attr name="blurOverlayColor" format="color" />
+        <!-- 角丸の半径(dp) -->
+        <attr name="blurCornerRadius" format="dimension" />
+        <!-- true で円形にクリップ(blurCornerRadius より優先) -->
+        <attr name="blurCircle" format="boolean" />
+        <!-- 取り込み時の縮小率(0.0〜1.0)。小さいほど高速だが粗くなる -->
+        <attr name="blurDownscale" format="float" />
+    </declare-styleable>
+</resources>

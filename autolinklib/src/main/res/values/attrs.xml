@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AutoLinkTextView">
+        <!-- URL / メール / 電話の文字色 -->
+        <attr name="linkColor" format="color" />
+        <!-- メンション / ハッシュタグの文字色 -->
+        <attr name="tagColor" format="color" />
+        <!-- リンク押下時の文字色 -->
+        <attr name="pressedLinkColor" format="color" />
+        <!-- URL に下線を引くか -->
+        <attr name="linkUnderline" format="boolean" />
+    </declare-styleable>
+</resources>

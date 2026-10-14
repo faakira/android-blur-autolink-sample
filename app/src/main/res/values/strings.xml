@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Blur &amp; AutoLink Sample</string>
+
+    <string name="title_blur">BlurView Demo</string>
+    <string name="title_autolink">AutoLink Demo</string>
+
+    <string name="home_heading">Blur &amp; AutoLink Sample</string>
+    <string name="home_description">2つのカスタムライブラリのデモです。ボタンから各デモ画面へ移動できます。</string>
+    <string name="open_blur_demo">BlurView デモを開く</string>
+    <string name="open_blur_compose_demo">BlurView デモ (Compose) を開く</string>
+    <string name="open_autolink_demo">AutoLink デモを開く</string>
+    <string name="open_autolink_compose_demo">AutoLink デモ (Compose) を開く</string>
+
+    <string name="blur_card_title">BlurView</string>
+    <string name="blur_card_body">背景をリアルタイムにぼかし、その上に子ビューを重ねて表示します。</string>
+    <string name="blur_radius_label">ぼかしの強さ</string>
+    <string name="blur_circle_toggle">円形にクリップ</string>
+
+    <string name="autolink_sample_text">URL は自動でリンクになります → https://github.com\nwww. 始まりも検出します → www.example.com/page\nメールにも対応 → test@gmail.com\n電話番号にも対応 → 03-1234-5678\n@メンションにも対応 → @google\n日本語のハッシュタグも対応 → #サンプル #ブラーライブラリ\n英語ハッシュタグ → #Android #Kotlin\nリンクをタップすると対応アプリ（ブラウザ・メール・電話・X）が開きます。</string>
+    <string name="autolink_tapped">タップ: %1$s (%2$s)</string>
+
+    <string name="autolink_edit_heading">AutoLinkEditText（入力中ハイライト）</string>
+    <string name="autolink_edit_description">入力している途中から、URL・メール・電話・@メンション・#ハッシュタグをリアルタイムで色付けします。</string>
+    <string name="autolink_edit_hint">入力例: test@gmail.com #サンプル https://example.com @google 03-1234-5678</string>
+</resources>

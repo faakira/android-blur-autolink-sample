@@ -1,0 +1,2 @@
+include ':app', ':blurlib', ':autolinklib'
+rootProject.name = "BlurAutoLinkSample"

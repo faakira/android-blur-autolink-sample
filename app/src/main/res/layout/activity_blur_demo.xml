@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ▼ ぼかし対象となる背景コンテンツ(スクロール可能) -->
+    <ScrollView
+        android:id="@+id/backgroundContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/backgroundContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_gradient"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="88dp"
+            android:paddingBottom="200dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BLUR"
+                android:textColor="@color/white"
+                android:textSize="64sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="スクロールしても、背後のテキスト・画像・図形がそのままリアルタイムにぼけて映り込みます。"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:lineSpacingExtra="4dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/photo_sunset"
+                android:contentDescription="sunset" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="The quick brown fox jumps over the lazy dog. 吾輩は猫である。名前はまだ無い。"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:lineSpacingExtra="4dp" />
+
+            <View
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/circle_white" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/photo_ocean"
+                android:contentDescription="ocean" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="あいうえお かきくけこ さしすせそ 0123456789 ABCDEFG abcdefg #hashtag @mention"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:lineSpacingExtra="4dp" />
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_launcher"
+                android:contentDescription="app icon" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/photo_forest"
+                android:contentDescription="forest" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="最後まで読み込んでも、カードの下を通るすべての要素がぼかされ続けます。これが世に出ている多くの blur ライブラリ（背景を一度だけスナップショットしてぼかす方式）との違いです。"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:lineSpacingExtra="4dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ▼ 背景をぼかすヘッダー -->
+    <com.firmapp.blur.BlurView
+        android:id="@+id/headerBlur"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_gravity="top"
+        app:blurOverlayColor="#66FFFFFF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="24dp"
+            android:text="@string/title_blur"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </com.firmapp.blur.BlurView>
+
+    <!-- ▼ ぼかしの上に重ねるカード -->
+    <com.firmapp.blur.BlurView
+        android:id="@+id/blurView"
+        android:layout_width="300dp"
+        android:layout_height="180dp"
+        android:layout_gravity="center"
+        app:blurOverlayColor="@color/blur_overlay"
+        app:blurCornerRadius="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/blur_card_title"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/blur_card_body"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="center" />
+        </LinearLayout>
+    </com.firmapp.blur.BlurView>
+
+    <!-- ▼ 背景をぼかす操作パネル -->
+    <com.firmapp.blur.BlurView
+        android:id="@+id/panelBlur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:blurOverlayColor="#66FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/blur_radius_label"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/radiusSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:valueFrom="1"
+                android:valueTo="25"
+                android:value="8"
+                android:stepSize="1" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/circleSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/blur_circle_toggle"
+                android:textColor="@color/black" />
+        </LinearLayout>
+    </com.firmapp.blur.BlurView>
+
+</FrameLayout>

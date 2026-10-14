@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BlurAutoLinkSample">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".BlurDemoActivity"
+            android:exported="false"
+            android:label="@string/title_blur"
+            android:theme="@style/Theme.BlurAutoLinkSample.NoActionBar" />
+
+        <activity
+            android:name=".ComposeBlurDemoActivity"
+            android:exported="false"
+            android:label="@string/title_blur"
+            android:theme="@style/Theme.BlurAutoLinkSample.NoActionBar" />
+
+        <activity
+            android:name=".AutoLinkDemoActivity"
+            android:exported="false"
+            android:label="@string/title_autolink" />
+
+        <activity
+            android:name=".ComposeAutoLinkDemoActivity"
+            android:exported="false"
+            android:label="@string/title_autolink"
+            android:theme="@style/Theme.BlurAutoLinkSample.NoActionBar" />
+
+    </application>
+
+</manifest>
