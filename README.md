@@ -5,8 +5,25 @@ Android 向けの 2 つの UI ライブラリと、その使い方を示すサ�
 | モジュール | 内容 |
 | --- | --- |
 | **`blurlib`** (`com.firmapp.blur`) | 背後のビューをリアルタイムにぼかす「すりガラス」。`RenderEffect` ベース。**View 版 (`BlurView`) と Compose 版 (`Modifier.backdropBlur`) の両方を同梱**し、ぼかしエンジン (`BackdropBlurRenderer`) を共有。 |
-| **`autolinklib`** (`com.firmapp.autolink`) | 本文中の URL・メール・電話・@メンション・#ハッシュタグを自動リンク化する `TextView`。 |
+| **`autolinklib`** (`com.firmapp.autolink`) | 本文中の URL・メール・電話・@メンション・#ハッシュタグを自動リンク化。**View 版 (`AutoLinkTextView` / `AutoLinkEditText`) と Compose 版 (`AutoLinkText` / `AutoLinkTextField`) の両方を同梱**し、検出エンジン (`LinkDetector`) を共有。 |
 | **`app`** | 両ライブラリを組み込んだデモアプリ。 |
+
+## モジュール構成
+
+3 モジュールのマルチモジュール構成。2 つのライブラリは `app` に依存せず単体で成立し、
+他プロジェクトへそのまま再利用できる（依存は `app → lib` の一方向のみ）。
+
+```
+BlurAutoLinkSample
+├── :app          com.android.application   … 両ライブラリを使うデモアプリ
+│      ├─ implementation project(':blurlib')
+│      └─ implementation project(':autolinklib')
+├── :blurlib      com.android.library       … すりガラス (View / Compose)
+└── :autolinklib  com.android.library       … 自動リンク (View / Compose)
+```
+
+各ライブラリは、プラットフォーム非依存の中核エンジン（`blurlib` の `BackdropBlurRenderer`、
+`autolinklib` の `LinkDetector`）を、View 版と Compose 版の薄いラッパで共有する層構造。
 
 ## デモ
 
